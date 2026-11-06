@@ -33,3 +33,64 @@ accessing layer attributes
 ```py
 p[IP].dst # IP layer -> dst attribute
 ```
+
+---
+## accessing and getting packet information (basic)
+```py
+print(p.time)       # Timestamp
+print(p.summary())  # Short summary
+print(p.len)        # Packet length
+print(p.src)        # Source (if available)
+print(p.dst)        # Destination (if available)
+```
+---
+
+print a packet kholase
+```py
+print(p.summary())
+```
+
+so ... for filter packet by protocol -> you can
+```py
+# filters and shows a summary of TCP packet
+from scapy.all import *
+
+packets = rdpcap("<filename>")
+
+for p in packets:
+    if p.haslayer(TCP):
+        print(p.summary())
+```
+
+---
+
+### extract Raw payload - for application layer data (sooo bekar miad):
+```py
+from scapy.all import *
+
+packets = rdpcap("<filename>")
+
+for p in packets:
+    if p.haslayer(Raw):
+        print(p[Raw].load)
+```
+
+for example if you want extract TCP layer payload:
+```py
+for p in packets:
+    if p.haslayer(TCP) and p.haslayer(Raw):
+        print(p[Raw].load)
+```
+
+
+for example if you want extract load to a specific file:
+```py
+data = b""
+
+for p in packets:
+    if p.haslayer(Raw):
+        data += p[Raw].load
+
+with open("<output.bin>", "wb") as f:
+    f.write(data)
+```
