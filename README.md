@@ -5,11 +5,12 @@
 ادامه چیت شیت فینگلیش نوشته شده
 
 داخل کد های پایتون راهنمایی هایی داخل کامنت گذاشته شده.
+
+
 ---
 
 # Abzar
 
----
 
 ## steghide
 for extract steghided data signature
