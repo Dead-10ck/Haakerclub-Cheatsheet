@@ -89,3 +89,69 @@ for y in range(h):
 
 print(bits)
 ```
+---
+
+### make a new image
+```py
+img = Image.new("RGB", (600, 400), "black")
+```
+
+example:
+```py
+from PIL import Image
+
+img = Image.new("RGB", (600, 400), "black")
+w, h = img.size
+pixels = img.load()
+
+for y in range(h):
+    for x in range(w):
+        pixels[x, y] = (255, 0, 0)
+
+img.save("<output.png>")
+```
+
+---
+### inspect image before starting
+```py
+from PIL import Image
+
+img = Image.open("<imagename>")
+
+print(img.format)  # image format
+print(img.mode)    # image colors mode -> like rgb , rgba , grayscale
+print(img.size)    # width and height
+```
+
+### convert modes
+```py
+img = Image.open("<imagename>")
+
+img = img.convert("RGB")
+# img = img.convert("RGBA")
+# img = img.convert("L")
+```
+
+---
+
+### reverse pixels scanning
+```py
+for y in range(h-1, -1, -1):
+    for x in range(w-1, -1, -1):
+        r, g, b = pixels[x, y]
+```
+
+---
+### split channels joda joda
+baraye barresie joda jodaye channel haye rangi
+```py
+from PIL import Image
+
+img = Image.open("<imagename>").convert("RGB")
+
+r, g, b = img.split()
+
+r.save("red.png")
+g.save("green.png")
+b.save("blue.png")
+```
