@@ -76,8 +76,7 @@ strings <file or path> | grep -iE "flag|ctf"    # finds flag or ctf contained te
 ---
 
 # Signatures
-
-# Magic Bytes (File Signatures)
+Magic Bytes (File Signatures)
 
 | File Format | Extension | Hex Signature | ASCII |
 |---|---|---|---|
