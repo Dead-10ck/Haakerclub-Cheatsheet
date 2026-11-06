@@ -11,6 +11,7 @@
 - [Magic Bytes](#Signatures)
 - [Pillow](./pillow.md)
 - [Scapy](./scapy.md)
+- [Disk & Memory](./diskomemory.md)
 
 
 ---
