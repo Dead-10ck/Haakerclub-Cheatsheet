@@ -6,6 +6,11 @@
 
 داخل کد های پایتون راهنمایی هایی داخل کامنت گذاشته شده.
 
+- [Abzars](#Abzar)
+- [Linux Commands](#Commands)
+- [Pillow](./pillow.md)
+- [Scapy](./scapy.md)
+
 
 ---
 
@@ -41,4 +46,28 @@ dd if=<inputfile> of=<outputfile> bs=1 skip=100 seek=200
 # skip -> byte hayi ke az aval rad mikone ta berese be masalan byte 100 om
 # seek -> byte hayi ke az akhar rad mikone ta berese be akhare file
 # masalan too in mesal az byte 100 ta 200 ro estekhraj mikone
+```
+
+--- 
+
+# Commands
+just for memorize
+
+```zsh
+strings <filename>                # shows the printable strings of the file
+exiftool <filename>               # shows the metadata
+file <filename>                   # checks the headers to approve file format
+xxd <filename>                    # shows the bytes of the file
+xxd <filename> | head             # shows the first bytes of the file
+xxd <filename> | tail             # shows the last bytes of the file
+```
+
+
+more expert
+```zsh
+grep <phrase>      # filter the phrase contained text
+grep -r <phrase>   # searching recursively
+grep -v <phrase>   # reverse search
+grep -i <PhrAsE>   # case insesitive search
+strings <file or path> | grep -iE "flag|ctf"    # finds flag or ctf contained texts
 ```
