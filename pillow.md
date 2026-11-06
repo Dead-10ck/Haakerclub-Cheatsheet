@@ -48,3 +48,44 @@ for y in range(h):
 img.save(<out.png>)
 ```
 ---
+
+### extract LSB
+```py
+from PIL import Image
+img = Image.open("<imagename>")
+w,h = img.size
+pixels = img.load()
+
+bits = ""
+
+for y in range(h):
+  for x in range(w):
+    r,g,b = pixels[x,y]
+
+    bits += str(r & 1)
+    # bits += str(g & 1)
+    # bits += str(b & 1)
+
+print(bits)
+```
+---
+
+### extract MSB
+```py
+from PIL import Image
+img = Image.open("<imagename>")
+w,h = img.size
+pixels = img.load()
+
+bits = ""
+
+for y in range(h):
+  for x in range(w):
+    r,g,b = pixels[x,y]
+
+    bits += str((r >> 7) & 1)
+    # bits += str((g >> 7) & 1)
+    # bits += str((b >> 7) & 1)
+
+print(bits)
+```
